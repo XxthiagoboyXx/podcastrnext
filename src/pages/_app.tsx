@@ -1,0 +1,27 @@
+import '../styles/global.scss'
+
+import { Header } from '../components/Header'
+import { Player } from '../components/Player'
+
+
+import styles from '../styles/app.module.scss'
+import { useState } from 'react'
+import { PlayerContextProvider } from '../contexts/PlayerContext'
+
+
+//app serve para usar compontentes globais, ou seja, que ficam em todas as telas
+function MyApp({ Component, pageProps }) {
+  return (
+    <PlayerContextProvider>
+      <div className={styles.wrapper}>
+        <main>
+          <Header />
+          <Component {...pageProps} />
+        </main>
+        <Player />
+      </div>
+    </PlayerContextProvider>
+  )
+}
+
+export default MyApp
